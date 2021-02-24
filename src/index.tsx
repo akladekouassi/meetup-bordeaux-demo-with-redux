@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import { Provider } from 'react-redux';
+import { Store } from 'redux';
+import { createBrowserHistory } from 'history';
+import { History } from 'history';
+import rootStore from './redux/rootStore/index';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import environments from './environments/base';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+interface AppStoreInitialState {}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+(async () => {
+  const initialState: AppStoreInitialState = {};
+  const history: History = createBrowserHistory({ basename: environments()?.route.baseRoute! });
+  const store: Store<any> = rootStore(initialState, history);
+  const rootEl = document.getElementById('root');
+  const render = (Component: any, el: any) => {
+    ReactDOM.render(
+      <Provider store={store}>
+        <Component history={history} dispatch={store.dispatch} />
+      </Provider>,
+      el
+    );
+  };
+
+  render(App, rootEl);
+})();

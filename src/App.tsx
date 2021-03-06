@@ -13,7 +13,7 @@ type AppProps = {
 };
 const App: React.FC<AppProps> = ({ history }: AppProps) => {
   return (
-    <>
+    <React.Fragment>
       <MuiThemeProvider theme={BaseTheme}>
         <StylesProvider jss={jss}>
           <CssBaseline />
@@ -26,7 +26,7 @@ const App: React.FC<AppProps> = ({ history }: AppProps) => {
           </ConnectedRouter>
         </StylesProvider>
       </MuiThemeProvider>
-    </>
+    </React.Fragment>
   );
 };
 export default App;

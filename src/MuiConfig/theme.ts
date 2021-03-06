@@ -4,7 +4,8 @@ import { Colors } from './colors';
 export const BaseTheme = createMuiTheme({
   palette: {
     primary: {
-      main: Colors.blue[900],
+      main: '#fca42d',
+      contrastText: '#fff',
     },
   },
   typography: {

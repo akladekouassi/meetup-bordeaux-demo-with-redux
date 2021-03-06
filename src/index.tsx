@@ -9,10 +9,21 @@ import { History } from 'history';
 import rootStore from './redux/rootStore/index';
 import App from './App';
 import environments from './environments/base';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 interface AppStoreInitialState {}
 
 (async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: true,
+        refetchOnReconnect: true,
+        refetchOnMount: true,
+      },
+    },
+  });
   const initialState: AppStoreInitialState = {};
   const history: History = createBrowserHistory({ basename: environments()?.route.baseRoute! });
   const store: Store<any> = rootStore(initialState, history);
@@ -20,7 +31,10 @@ interface AppStoreInitialState {}
   const render = (Component: any, el: any) => {
     ReactDOM.render(
       <Provider store={store}>
-        <Component history={history} dispatch={store.dispatch} />
+        <QueryClientProvider client={queryClient}>
+          <Component history={history} dispatch={store.dispatch} />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </Provider>,
       el
     );

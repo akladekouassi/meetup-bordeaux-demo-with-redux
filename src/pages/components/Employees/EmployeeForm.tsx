@@ -3,19 +3,22 @@ import { Grid } from '@material-ui/core';
 import Forms from '../../../components/controls/Controls';
 // import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { EmployerData, Kind } from '../../../redux/reducer/Employer.reducer';
+import { EmployerData } from '../../../redux/reducer/Employer.reducer';
+import { Kind } from '../../../redux/actions/index';
 import { useMutation } from 'react-query';
+import { ReducerMapType } from '../../../redux/reducer/rootReducer';
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: ReducerMapType) => {
   return {
-    user: state.user.addEmployer.data,
+    user: state.Employers.data,
+    employersFetched: state.Employers.EmployerFeched,
   };
 };
 
 const mapDispatcherToProps = (dispatch: any) => {
   return {
     dispatchUserToStore: (value: string | Date | boolean, fieldName: string) =>
-      dispatch({ type: Kind.UpdateUserDataAction, payload: value, fieldName }),
+      dispatch({ type: Kind.AddEmployerDataAction, payload: value, fieldName }),
   };
 };
 
@@ -26,6 +29,7 @@ const genderItems: { id: string; title: string }[] = [
 
 interface EmployerFormProps {
   user: EmployerData['addEmployer'];
+  employersFetched: EmployerData['ViewEmployer'][];
   dispatchUserToStore: (value: string | boolean | Date, fieldName: string) => Dispatch<any>;
 }
 
@@ -53,7 +57,6 @@ const EmployeeForm: React.FunctionComponent<ReduxType> = (props: EmployerFormPro
     props.dispatchUserToStore(e.target.value, fieldName);
 
   const handleAdduser = async (e: any) => {
-    // e.preventDefault();
     try {
       await mutation.mutateAsync();
     } catch (error) {}

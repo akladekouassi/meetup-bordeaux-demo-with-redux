@@ -1,8 +1,4 @@
-import { combineReducers } from 'redux';
-
-export enum Kind {
-  UpdateUserDataAction = 'DISPATCH USER TO STORE',
-}
+import { Kind, Action } from '../actions/index';
 
 export interface EmployerData {
   addEmployer: {
@@ -15,13 +11,12 @@ export interface EmployerData {
     hiredDate: Date;
     isPermanent: boolean;
   };
-  ViewEmployer: any;
+  ViewEmployer: EmployerData['addEmployer'][];
 }
-
-export type Action = { type: Kind.UpdateUserDataAction; payload: string | Date | boolean; fieldName: string };
 
 export interface EmployerState {
   data: EmployerData['addEmployer'];
+  EmployerFeched: EmployerData['ViewEmployer'];
 }
 
 const EmployerInitialState: EmployerState = {
@@ -35,14 +30,21 @@ const EmployerInitialState: EmployerState = {
     hiredDate: new Date(),
     isPermanent: false,
   },
+  EmployerFeched: [],
 };
 
-const addEmployerReducer = (state: EmployerState = EmployerInitialState, action: Action): EmployerState => {
+const EmployerReducer = (state: EmployerState = EmployerInitialState, action: Action): EmployerState => {
   switch (action.type) {
-    case Kind.UpdateUserDataAction: {
+    case Kind.AddEmployerDataAction: {
       return {
         ...state,
         data: { ...state.data, [action.fieldName]: action.payload },
+      };
+    }
+    case Kind.FetchEmployerDataAction: {
+      return {
+        ...state,
+        EmployerFeched: action.payload,
       };
     }
 
@@ -51,6 +53,4 @@ const addEmployerReducer = (state: EmployerState = EmployerInitialState, action:
   }
 };
 
-export default combineReducers<typeof addEmployerReducer>({
-  addEmployer: addEmployerReducer,
-});
+export default EmployerReducer;

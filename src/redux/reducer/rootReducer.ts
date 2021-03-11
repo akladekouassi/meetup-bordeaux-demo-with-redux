@@ -6,13 +6,13 @@ import { EmployerData } from '../reducer/Employer.reducer';
 
 export interface ReducerMapType {
   router: any;
-  user: any;
+  Employers: any;
 }
 
 export const rootReducer = (history: History) => {
   const reducerMap: ReducerMapType = {
     router: connectRouter(history),
-    user: UserReducer,
+    Employers: UserReducer,
   };
   return combineReducers(reducerMap);
 };

@@ -8,7 +8,6 @@ import { createBrowserHistory } from 'history';
 import { History } from 'history';
 import rootStore from './redux/rootStore/index';
 import App from './App';
-import environments from './environments/base';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
@@ -25,14 +24,14 @@ interface AppStoreInitialState {}
     },
   });
   const initialState: AppStoreInitialState = {};
-  const history: History = createBrowserHistory({ basename: environments()?.route.baseRoute! });
+  const history: History = createBrowserHistory({});
   const store: Store<any> = rootStore(initialState, history);
   const rootEl = document.getElementById('root');
   const render = (Component: any, el: any) => {
     ReactDOM.render(
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <Component history={history} dispatch={store.dispatch} />
+          <Component history={history} />
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </Provider>,

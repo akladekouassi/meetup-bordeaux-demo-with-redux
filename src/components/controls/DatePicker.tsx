@@ -1,35 +1,3 @@
-// import React, { FunctionComponent, ChangeEvent } from 'react';
-// import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-// import DateFnsUtils from '@date-io/date-fns';
-
-// const DatePicker: FunctionComponent<DatePickerProps> = (props: DatePickerProps) => {
-//   const { name, label, value, onChange, onBlur } = props;
-//   const convertToDefEventPara = (name: string, value: any) => ({
-//     target: {
-//       name,
-//       value,
-//     },
-//   });
-
-//   return (
-//     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-//       <KeyboardDatePicker
-//         disableToolbar
-//         variant="inline"
-//         inputVariant="outlined"
-//         label={label}
-//         format="MMM/dd/yyyy"
-//         onBlur={onBlur}
-//         name={name}
-//         value={value}
-//         onChange={(date: any) => onChange(convertToDefEventPara(name, date))}
-//       />
-//     </MuiPickersUtilsProvider>
-//   );
-// };
-
-// export default DatePicker;
-
 import 'date-fns';
 import React, { ChangeEvent } from 'react';
 import Grid from '@material-ui/core/Grid';
@@ -54,13 +22,6 @@ interface DatePickerProps {
 }
 
 export default function DatePicker(props: DatePickerProps) {
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date('2014-08-18T21:11:54'));
-
-  const handleDateChange = (date: Date | null) => {
-    setSelectedDate(date);
-  };
-
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container>

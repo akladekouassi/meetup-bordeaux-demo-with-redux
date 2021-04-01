@@ -4,11 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run: Open [https://github.com:akladekouassi/meetup-bordeaux-demo-backend.git](git@github.com:akladekouassi/meetup-bordeaux-demo-backend.git)
+In the project directory, you can run
 
 ### `yarn dev`
 
-Before run `yarn dev`, make sure you have clone the backend at this link:
+Before run `yarn dev`, make sure you have clone the backend at this link: [https://github.com:akladekouassi/meetup-bordeaux-demo-backend.git](git@github.com:akladekouassi/meetup-bordeaux-demo-backend.git)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

@@ -3,7 +3,7 @@ import Select from './Select';
 import Checkbox from './Checkbox';
 import DatePicker from './DatePicker';
 import Button from './Button';
-import { BasicInput as OutlinedInput } from './Input';
+import { Input as OutlinedInput } from './Input';
 
 const Controls = {
   RadioGroup,

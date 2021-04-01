@@ -23,14 +23,8 @@ interface SelectProps {
   hint?: string;
   htmlFor?: string;
   onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | { value: unknown }>) => void;
-  onBlur?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  inputType?: string;
   label?: string;
-  helperText?: any;
-  placeHolder?: any;
-  disabled?: boolean;
   value?: string;
-  styleCustomer?: any;
   options?: any;
 }
 

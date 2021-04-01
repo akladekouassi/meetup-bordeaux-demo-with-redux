@@ -3,7 +3,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, OutlinedInput, FormHelperText } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 
-interface BasicInputProps {
+interface InputProps {
   className?: string;
   isError?: boolean | undefined;
   isRequired?: boolean | undefined;
@@ -13,16 +13,14 @@ interface BasicInputProps {
   inputProps?: any;
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onBlur: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  inputType?: string;
   label?: string;
   helperText?: any;
   placeHolder?: any;
   disabled?: boolean;
   value?: string;
-  styleCustomer?: any;
 }
 
-export const BasicInput: FunctionComponent<BasicInputProps> = (props: BasicInputProps) => {
+export const Input: FunctionComponent<InputProps> = (props: InputProps) => {
   const useStyles = makeStyles(() =>
     createStyles({
       label: {},

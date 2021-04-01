@@ -1,19 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ChangeEvent } from 'react';
 import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 
 interface RadioCardProps {
   checked?: boolean;
-  src?: string;
   label: string;
   name: string;
   value: string;
-  onChange: any;
+  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   items: { id: string; title: string }[];
-  radioType?: any;
-  backgroundColor?: string;
-  textColor?: string;
-  className?: string;
-  cyIdentifier?: string;
 }
 
 const RadioGroup: FunctionComponent<RadioCardProps> = (props: RadioCardProps) => {

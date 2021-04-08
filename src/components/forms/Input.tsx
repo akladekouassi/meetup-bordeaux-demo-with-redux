@@ -20,7 +20,7 @@ interface InputProps {
   value?: string;
 }
 
-export const Input: FunctionComponent<InputProps> = (props: InputProps) => {
+export const InputComponent: FunctionComponent<InputProps> = (props: InputProps): JSX.Element => {
   const useStyles = makeStyles(() =>
     createStyles({
       label: {},

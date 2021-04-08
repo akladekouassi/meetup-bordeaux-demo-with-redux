@@ -21,7 +21,7 @@ interface DatePickerProps {
   value?: any;
 }
 
-export default function DatePicker(props: DatePickerProps) {
+const DatePickerComponent: React.FunctionComponent<DatePickerProps> = (props: DatePickerProps): JSX.Element => {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container>
@@ -41,4 +41,6 @@ export default function DatePicker(props: DatePickerProps) {
       </Grid>
     </MuiPickersUtilsProvider>
   );
-}
+};
+
+export default DatePickerComponent;

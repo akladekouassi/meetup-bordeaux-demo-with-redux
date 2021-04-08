@@ -1,5 +1,4 @@
 import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles';
-import { Colors } from './colors';
 
 export const BaseTheme = createMuiTheme({
   palette: {
@@ -11,12 +10,12 @@ export const BaseTheme = createMuiTheme({
   typography: {
     h1: {
       fontSize: 42,
-      color: Colors.brown[700],
+      color: '#424242',
       letterSpacing: 0.33,
     },
     h2: {
       fontSize: 22,
-      color: Colors.brown[700],
+      color: '#424242',
       letterSpacing: 0.33,
     },
   },

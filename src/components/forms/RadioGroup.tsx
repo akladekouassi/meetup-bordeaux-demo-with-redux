@@ -10,7 +10,7 @@ interface RadioCardProps {
   items: { id: string; title: string }[];
 }
 
-const RadioGroup: FunctionComponent<RadioCardProps> = (props: RadioCardProps) => {
+const RadioGroupComponent: FunctionComponent<RadioCardProps> = (props: RadioCardProps) => {
   const { name, label, value, onChange, items } = props;
 
   return (
@@ -25,4 +25,4 @@ const RadioGroup: FunctionComponent<RadioCardProps> = (props: RadioCardProps) =>
   );
 };
 
-export default RadioGroup;
+export default RadioGroupComponent;

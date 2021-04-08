@@ -3,9 +3,9 @@ import Select from './Select';
 import Checkbox from './Checkbox';
 import DatePicker from './DatePicker';
 import Button from './Button';
-import { Input as OutlinedInput } from './Input';
+import { InputComponent as OutlinedInput } from './Input';
 
-const Controls = {
+const FormsControl = {
   RadioGroup,
   Select,
   Checkbox,
@@ -14,4 +14,4 @@ const Controls = {
   OutlinedInput,
 };
 
-export default Controls;
+export { FormsControl };

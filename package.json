@@ -8,7 +8,7 @@
     "dev": "concurrently \"yarn start:api:dev\" \"yarn start:frontend:dev\"",
     "start": "npx serve -s build",
     "------ALL-DEVELOPMENT-CMDs------": "",
-    "start:frontend:dev": "env-cmd -e local_start -r env-cmd.js react-scripts start",
+    "start:frontend:dev": "env-cmd -e local_dev -r env-cmd.js react-scripts start",
     "start:api:dev": "yarn --cwd backend run start:dev",
     "------ALL-BUILDs-CMDs------": "",
     "build": "react-scripts build",

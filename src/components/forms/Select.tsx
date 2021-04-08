@@ -28,7 +28,7 @@ interface SelectProps {
   options?: any;
 }
 
-export default function SelectComponent(props: SelectProps) {
+const SelectComponent: React.FunctionComponent<SelectProps> = (props: SelectProps): JSX.Element => {
   const classes = useStyles();
   return (
     <div>
@@ -44,4 +44,6 @@ export default function SelectComponent(props: SelectProps) {
       </FormControl>
     </div>
   );
-}
+};
+
+export default SelectComponent;

@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   },
 });
 
-function HomePage() {
+const HomePage: React.FunctionComponent = (): JSX.Element => {
   const classes = useStyles();
 
   return (
@@ -34,7 +34,7 @@ function HomePage() {
       </div>
     </React.Fragment>
   );
-}
+};
 
 export { HomePage as Unconnected };
 export default connect(null, null)(HomePage);

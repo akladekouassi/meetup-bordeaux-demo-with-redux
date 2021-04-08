@@ -4,7 +4,6 @@ import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import DataTable from './utils/Tables';
 import PageHeader from '../../../components/PageHeader';
-import { useQuery } from 'react-query';
 import { EmployerData } from '../../../redux/reducer/Employer.reducer';
 import { connect } from 'react-redux';
 import { Kind } from '../../../redux/actions/index';

@@ -10,7 +10,7 @@ interface InitialState {}
 const rootStore = (initialState: InitialState, history: History): Store<any> => {
   const middleware: any = [process.env.NODE_ENV === 'development' ? reduxFreeze : null, thunk, routerMiddleware(history)].filter(Boolean);
   const store = createStore(rootReducer(history), initialState, composeWithDevTools(applyMiddleware(...middleware)));
-  store.subscribe(() => console.log('THE STORE', store.getState()));
+  store.subscribe(() => console.log('[THE STORE VALUE]:', store.getState()));
   return store;
 };
 

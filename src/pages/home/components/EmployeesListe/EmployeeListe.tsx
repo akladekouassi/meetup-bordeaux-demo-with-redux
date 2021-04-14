@@ -1,21 +1,12 @@
-import React from 'react';
-import LoadingIndicator from '../../../components/loading-indicator/LoadingIndicator';
+import React, { Dispatch } from 'react';
+import LoadingIndicator from '../../../../components/loading-indicator/LoadingIndicator';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
 import DataTable from './utils/Tables';
-import PageHeader from '../../../components/PageHeader';
-import { EmployerData } from '../../../redux/reducer/Employer.reducer';
+import PageHeader from '../../../../components/PageHeader';
+import { EmployerData } from '../../../../redux/reducer/Employer.reducer';
 import { connect } from 'react-redux';
-import { Kind } from '../../../redux/actions/index';
-import { ReducerMapType } from '../../../redux/reducer/rootReducer';
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      width: '100%',
-    },
-  })
-);
+import { Kind, Action } from '../../../../redux/actions/index';
+import { ReducerMapType } from '../../../../redux/reducer/rootReducer';
 
 const mapStateToProps = (state: ReducerMapType) => {
   return {
@@ -35,20 +26,24 @@ const getEmployersData = async (): Promise<EmployerData['addEmployer'][]> => {
   return usersList;
 };
 
-const EmployeeList: React.FunctionComponent = (props: any) => {
-  const classes = useStyles();
+interface EmployerListProps {
+  employers: EmployerData['ViewEmployer'][];
+  fetchFromDataBaseToStore: (payload: EmployerData['addEmployer'][]) => Dispatch<Action>;
+}
 
+const EmployeeList: React.FC<EmployerListProps> = (props: EmployerListProps) => {
   React.useEffect(() => {
     getEmployersData().then((data) => {
       props.fetchFromDataBaseToStore(data);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <React.Fragment>
       <LoadingIndicator isActive={false}>
         <PageHeader title="Liste des Employés" subTitle="" icon={<PeopleOutlineTwoToneIcon fontSize="large" />} />
-        <div className={classes.root}>
+        <div style={{ margin: 20 }}>
           <DataTable rows={props.employers} />
         </div>
       </LoadingIndicator>

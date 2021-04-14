@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core';
 import Header from '../../components/Header';
-import EmployeeListe from '../components/EmployeesListe/EmployeeListe';
-import Employees from '../components/Employees/Employees';
+import EmployeeListe from './components/EmployeesListe/EmployeeListe';
+import Employees from './components/Employees/Employees';
 import CoolTabs from 'react-cool-tabs';
 
 const useStyles = makeStyles({

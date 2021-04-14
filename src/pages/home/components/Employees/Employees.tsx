@@ -1,16 +1,16 @@
 import React, { Dispatch, ChangeEvent } from 'react';
-import PageHeader from '../../../components/PageHeader';
+import PageHeader from '../../../../components/PageHeader';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import { Paper, makeStyles } from '@material-ui/core';
 
 import { Grid } from '@material-ui/core';
-import { FormsControl } from '../../../components/forms';
+import { FormsControl } from '../../../../components/forms';
 // import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { EmployerData } from '../../../redux/reducer/Employer.reducer';
-import { Kind } from '../../../redux/actions/index';
+import { EmployerData } from '../../../../redux/reducer/Employer.reducer';
+import { Kind, Action } from '../../../../redux/actions/index';
 import { useMutation } from 'react-query';
-import { ReducerMapType } from '../../../redux/reducer/rootReducer';
+import { ReducerMapType } from '../../../../redux/reducer/rootReducer';
 
 const mapStateToProps = (state: ReducerMapType) => {
   return {
@@ -34,7 +34,7 @@ const genderItems: { id: string; title: string }[] = [
 interface EmployerFormProps {
   user: EmployerData['addEmployer'];
   employersFetched: EmployerData['ViewEmployer'][];
-  dispatchUserToStore: (value: string | boolean | Date, fieldName: string) => Dispatch<any>;
+  dispatchUserToStore: (value: string | boolean | Date, fieldName: string) => Dispatch<Action>;
 }
 
 type ReduxType = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatcherToProps> & EmployerFormProps;
@@ -78,8 +78,8 @@ const Employers: React.FunctionComponent<ReduxType> = (props: EmployerFormProps)
       <PageHeader title="Ajouter un nouvel employé" subTitle="" icon={<PeopleOutlineTwoToneIcon fontSize="large" />} />
       <Paper className={classes.pageContent}>
         <form>
-          <Grid container>
-            <Grid item xs={6}>
+          <Grid container spacing={4}>
+            <Grid item xs={6} sm={6} md={6} lg={6}>
               <FormsControl.OutlinedInput
                 defaultValue={props.user.lastName}
                 isError={false}
@@ -114,7 +114,7 @@ const Employers: React.FunctionComponent<ReduxType> = (props: EmployerFormProps)
                 onBlur={(e) => handleOnBlur(e, 'email')}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} sm={6} md={6} lg={6}>
               <FormsControl.RadioGroup
                 name="gender"
                 label="Genre"

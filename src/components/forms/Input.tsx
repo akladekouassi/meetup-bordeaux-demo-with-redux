@@ -33,7 +33,7 @@ export const InputComponent: FunctionComponent<InputProps> = (props: InputProps)
 
   return (
     <React.Fragment>
-      <FormControl variant="outlined" fullWidth>
+      <FormControl variant="outlined" fullWidth style={{ margin: 10 }}>
         {props.isError && (
           <InputLabel htmlFor={props.htmlFor} className={classes.labelError}>
             {props.hint}
@@ -50,7 +50,6 @@ export const InputComponent: FunctionComponent<InputProps> = (props: InputProps)
           error={props.isError}
           required={props.isRequired}
           onBlur={props.onBlur}
-          fullWidth
           onChange={props.onChange}
           id={props.htmlFor}
           inputProps={props.inputProps}

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
+import { EmployerData } from '../../../../../redux/reducer/Employer.reducer';
 
 const columns: any[] = [
   { field: 'lastName', headerName: 'Nom', width: 130 },
@@ -22,10 +23,14 @@ const columns: any[] = [
   },
 ];
 
-export default function DataTable(props: any) {
+interface DataTableProps {
+  rows: EmployerData['ViewEmployer'][];
+}
+
+export default function DataTable(props: DataTableProps): JSX.Element {
   return (
-    <div style={{ height: 400, width: '90%' }}>
-      <DataGrid rows={props.rows!} columns={columns} pageSize={5} checkboxSelection />
+    <div style={{ height: 420, width: '100%' }}>
+      <DataGrid rows={props.rows!} columns={columns} pageSize={10} checkboxSelection />
     </div>
   );
 }

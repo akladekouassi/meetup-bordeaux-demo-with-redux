@@ -6,9 +6,9 @@ import LoadingIndicator from './components/loading-indicator/LoadingIndicator';
 import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
 import { BaseTheme } from './MuiConfig';
 
-const HomePage = lazy(() => import('./pages/home-page/HomePage'));
+const HomePage = lazy(() => import('./pages/home/HomePage'));
 
-type AppProps = {
+export type AppProps = {
   history: any;
 };
 const App: React.FC<AppProps> = ({ history }: AppProps) => {

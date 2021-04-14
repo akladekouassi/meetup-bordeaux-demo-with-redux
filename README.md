@@ -10,6 +10,8 @@ In the project directory, you can run
 
 Before run `yarn dev`, make sure you have clone the backend at this link: [https://github.com:akladekouassi/meetup-bordeaux-demo-backend.git](git@github.com:akladekouassi/meetup-bordeaux-demo-backend.git)
 
+- If you have any problem with this, you can join me on linkedin at: [https://www.linkedin.com/in/aks-dev/](Aklade Kouassi Sosthene)
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 

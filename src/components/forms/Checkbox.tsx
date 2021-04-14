@@ -8,6 +8,7 @@ interface ConvertToDefEventPara {
 }
 
 interface CheckboxProps {
+  htmlFor: string;
   name: string;
   label: string;
   value: boolean | undefined;

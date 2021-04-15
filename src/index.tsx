@@ -6,29 +6,29 @@ import { Provider } from 'react-redux';
 import { Store } from 'redux';
 import { createBrowserHistory } from 'history';
 import { History } from 'history';
-import rootStore from './redux/rootStore/index';
+import { rootStore } from './redux/store/index';
 import App, { AppProps } from './App';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 interface AppStoreInitialState {}
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: true,
-      refetchOnReconnect: true,
-      refetchOnMount: true,
-    },
-  },
-});
-
-const initialState: AppStoreInitialState = {};
-const history: History = createBrowserHistory({});
-const store: Store<any> = rootStore(initialState, history);
-const rootEl = document.getElementById('root');
-
 (async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: true,
+        refetchOnReconnect: true,
+        refetchOnMount: true,
+      },
+    },
+  });
+
+  const initialState: AppStoreInitialState = {};
+  const history: History = createBrowserHistory({});
+  const store: Store<any> = rootStore(initialState, history);
+  const rootEl = document.getElementById('root');
+
   const render = (Component: React.FC<AppProps>, el: HTMLElement | null) => {
     ReactDOM.render(
       <Provider store={store}>
